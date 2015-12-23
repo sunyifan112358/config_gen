@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from setting import Setting
 from si_config_generator import SiConfigGenerator
 from mem_config_generator import MemConfigGenerator
