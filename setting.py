@@ -9,10 +9,10 @@ class Setting:
   def register_arguments(self):
     self._parser.add_argument('--num-cpu-mem-controller', default=2)
     self._parser.add_argument('--num-gpu', default=4)
-    self._parser.add_argument('--num-cu-per-gpu', default=16)
+    self._parser.add_argument('--num-cu-per-gpu', default=16, type=int)
     self._parser.add_argument('--network', default='umh', 
         choices=['umh', 'zc', 'nc'])
-    self._parser.add_argument('--gm-block-size', default=64)
+    self._parser.add_argument('--gm-block-size', default=64, type=int)
     self._parser.add_argument('--technology', default='pcie',
         choices=['pcie', 'p2p'])
     self._parser.add_argument('--cpu-bus-bandwidth', default=12)

@@ -18,3 +18,4 @@ class PcieBackboneNetworkGenerator(BackboneNetworkGenerator):
   def write_connections(self, writer):
     for i in range(0, self.num_gpu):
       writer.connect('gpu-switch-' + str(i), 'pcie-bus')
+    writer.connect('cpu-switch', 'pcie-bus')

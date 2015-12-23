@@ -29,7 +29,7 @@ def generate_si_config(settings):
 def generate_memory_config(settings):
   mem_gen = get_memory_config_generator(settings)
   mem_gen.num_cpu_memory_controller = settings.num_cpu_memory_controller
-  mem_gen.set_gm_block_size = settings.gm_block_size
+  mem_gen.set_gm_block_size(settings.gm_block_size)
   mem_gen.generate()
 
 def get_memory_config_generator(settings):

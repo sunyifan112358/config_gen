@@ -14,6 +14,7 @@ class UmhMemConfigGenerator(MemConfigGenerator):
     self.write_gm_cache_geometry(config)
     self.write_l1v_cache(config)
     self.write_l1s_cache(config)
+    self.write_core_entry(config)
     self.write_l2_cache(config)
     self.write_gm_cache(config)
     self.write_mm(config)
@@ -42,7 +43,7 @@ class UmhMemConfigGenerator(MemConfigGenerator):
           '\n[Module gm-' + str(i) + ']\n'
           'Type = Cache\n'
           'Geometry = si-geo-gm\n'
-          'HighNetwork = si-net-\n'
+          'HighNetwork = si-net-l2-gm\n'
           'HighNetworkNode = gm-' + str(i) + '\n'
           'LowNetwork = si-net-gm-mm\n'
           'LowNetworkNode = gm-' + str(i) + '\n'
@@ -65,7 +66,7 @@ class UmhMemConfigGenerator(MemConfigGenerator):
           'HighNetwork = si-net-gm-mm\n'
           'HighNetworkNode = mm-' + str(i) + '\n'
           'Ports = 4\n'
-          'AddressRange = ADDR DIR ' + str(self.mm_block_size) + ''
+          'AddressRange = ADDR DIV ' + str(self.mm_block_size) + ''
           ' MOD ' + str(self.num_cpu_memory_controller) + ''
           ' EQ ' + str(i) + '\n'
         ))

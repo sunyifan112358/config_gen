@@ -69,7 +69,7 @@ class NetworkWriter(object):
         'Frequency = 1000\n'
       ))
     if fix_delay != None:
-      self.config.write('NetFixDelay = ' + fix_delay + '\n')
+      self.config.write('NetFixDelay = ' + str(fix_delay) + '\n')
 
   def connect(self, source, dest, bandwidth = None):
     self.link_writer.write(self.config, source, dest, bandwidth)

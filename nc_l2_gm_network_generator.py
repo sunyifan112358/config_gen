@@ -26,7 +26,7 @@ class NcL2GmNetworkGenerator(object):
 
   def write_l2_nodes(self, writer):
     for i in range(self.num_l2):
-      writer.add_node('l2-' + str(i))
+      writer.add_node('l2n' + str(i))
 
   def write_gm_nodes(self, writer):
     for i in range(self.num_l2):
@@ -50,7 +50,7 @@ class NcL2GmNetworkGenerator(object):
 
   def connect_l2_to_local_switches(self, writer):
     for i in range(self.num_l2):
-      writer.connect('l2-' + str(i), 'local-switch-' + str(i))
+      writer.connect('l2n' + str(i), 'local-switch-' + str(i))
 
   def connect_local_switches_to_gpu_switch(self, writer):
     for i in range(self.num_l2):

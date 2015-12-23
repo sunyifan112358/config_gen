@@ -15,7 +15,7 @@ class BackboneNetworkGenerator(object):
 
   def write_gpu_switches(self, writer):
     for i in range(0, self.num_gpu):
-      writer.add_switch('gpu-switch' + str(i))
+      writer.add_switch('gpu-switch-' + str(i))
   
   def write_cpu_switch(self, writer):
     writer.add_switch('cpu-switch')

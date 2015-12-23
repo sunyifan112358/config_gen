@@ -23,7 +23,7 @@ class UmhL2GmNetworkGenerator(object):
 
   def write_l2_nodes(self, writer):
     for i in range(self.num_l2):
-      writer.add_node('l2-' + str(i))
+      writer.add_node('l2n' + str(i))
 
   def write_gm_nodes(self, writer):
     for i in range(self.num_l2):
@@ -39,5 +39,5 @@ class UmhL2GmNetworkGenerator(object):
 
   def connect_l2_to_gddr(self, writer):
     for i in range(self.num_l2):
-      writer.connect('l2-' + str(i), 'gddr-' + str(i))
+      writer.connect('l2n' + str(i), 'gddr-' + str(i))
 

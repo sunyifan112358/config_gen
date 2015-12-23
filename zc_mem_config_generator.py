@@ -13,6 +13,7 @@ class ZcMemConfigGenerator(MemConfigGenerator):
     self.write_l2_geometry(config)
     self.write_l1v_cache(config)
     self.write_l1s_cache(config)
+    self.write_core_entry(config)
     self.write_l2_cache(config)
     self.write_mm(config)
 
@@ -46,7 +47,7 @@ class ZcMemConfigGenerator(MemConfigGenerator):
           'HighNetwork = si-net-l2-mm\n'
           'HighNetworkNode = mm-' + str(i) + '\n'
           'Ports = 4\n'
-          'AddressRange = ADDR DIR ' + str(self.mm_block_size) + ''
+          'AddressRange = ADDR DIV ' + str(self.mm_block_size) + ''
           ' MOD ' + str(self.num_cpu_memory_controller) + ''
           ' EQ ' + str(i) + '\n'
         ))

@@ -49,6 +49,7 @@ class NetConfigGenerator(object):
     generator = ZcL2MmNetworkGenerator()
     generator.num_l2 = self.num_l2_per_gpu * self.num_gpu
     generator.num_l2_per_gpu = self.num_l2_per_gpu
+    generator.generate(config)
     self.generate_cpu_local_network(config, 'si-net-l2-mm')
     self.generate_backbone_network(config, 'si-net-l2-mm')
 

@@ -4,6 +4,7 @@ class P2pBackboneNetworkGenerator(BackboneNetworkGenerator):
 
   def __init__(self):
     super(P2pBackboneNetworkGenerator, self).__init__()
+    self.p2p_bandwidth = 20;
 
   def generate(self, config):
     writer = self.create_network_writer(config)
@@ -15,5 +16,7 @@ class P2pBackboneNetworkGenerator(BackboneNetworkGenerator):
     for i in range(0, self.num_gpu):
       for j in range(0, i):
         writer.connect('gpu-switch-' + str(i), 
-            'gpu-switch-' + str(j))
-      writer.connect('gpu-switch-' + str(i), 'cpu-switch')
+            'gpu-switch-' + str(j),
+            bandwidth = self.p2p_bandwidth)
+      writer.connect('gpu-switch-' + str(i), 'cpu-switch',
+          bandwidth = self.p2p_bandwidth)

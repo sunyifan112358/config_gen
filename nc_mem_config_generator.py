@@ -13,6 +13,7 @@ class NcMemConfigGenerator(MemConfigGenerator):
     self.write_l2_geometry(config)
     self.write_l1v_cache(config)
     self.write_l1s_cache(config)
+    self.write_core_entry(config)
     self.write_l2_cache(config)
     self.write_gm(config)
 

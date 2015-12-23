@@ -90,6 +90,16 @@ class MemConfigGenerator(object):
       'Ports = 2\n'
     ))
 
+  def write_core_entry(self, config):
+    for i in range(0, self.num_gpu * self.num_cu_per_gpu):
+      config.write((
+          '\n[Entry si-cu-' + str(i) + ']\n'
+          'Arch = SouthernIslands\n'
+          'ComputeUnit = ' + str(i) + '\n'
+          'DataModule = si-vector-l1-' + str(i) + '\n'
+          'ConstantDataModule = si-scalar-l1-' + str(i/4) + '\n'
+        ))
+
   def write_gm_cache_geometry(self, config):
     config.write((
       '\n[CacheGeometry si-geo-gm]\n'
@@ -138,24 +148,6 @@ class MemConfigGenerator(object):
         l2_id = cpu_id * self.num_l2_per_gpu + j
         config.write('l2n' + str(l2_id) + ' ')
       config.write('\n')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

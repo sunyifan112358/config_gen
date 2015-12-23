@@ -20,11 +20,11 @@ class ZcL2MmNetworkGenerator(object):
 
   def write_l2_nodes(self, writer):
     for i in range(self.num_l2):
-      writer.add_node('l2-' + str(i))
+      writer.add_node('l2n' + str(i))
 
   def connect_l2_to_gpu_switch(self, writer):
     for i in range(self.num_l2):
       gpu_id = i / self.num_l2_per_gpu
-      writer.connect('l2-' + str(i), 
+      writer.connect('l2n' + str(i), 
           'gpu-switch-' + str(gpu_id))
 
