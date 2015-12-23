@@ -13,6 +13,9 @@ class Setting:
     self._parser.add_argument('--network', default='umh', 
         choices=['umh', 'zc', 'nc'])
     self._parser.add_argument('--gm-block-size', default=64)
+    self._parser.add_argument('--technology', default='pcie',
+        choices=['pcie', 'p2p'])
+    self._parser.add_argument('--cpu-bus-bandwidth', default=12)
 
   def parse_arguments(self):
     self._args = self._parser.parse_args()
@@ -21,3 +24,5 @@ class Setting:
     self.num_cu_per_gpu = self._args.num_cu_per_gpu
     self.network = self._args.network
     self.gm_block_size = self._args.gm_block_size
+    self.technology = self._args.technology
+    self.cpu_bus_bandwidth = self._args.cpu_bus_bandwidth

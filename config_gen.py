@@ -4,11 +4,13 @@ from mem_config_generator import MemConfigGenerator
 from umh_mem_config_generator import UmhMemConfigGenerator
 from zc_mem_config_generator import ZcMemConfigGenerator
 from nc_mem_config_generator import NcMemConfigGenerator
+from net_config_generator import NetConfigGenerator
 
 def main():
   settings = get_settings()
   generate_si_config(settings)
   generate_memory_config(settings)
+  generate_network_config(settings)
 
 def get_settings():
   settings = Setting()
@@ -38,8 +40,15 @@ def get_memory_config_generator(settings):
   else:
     raise Exception('Unsupported network type: ' + settings.network)
 
-def generate_network_config():
-  pass
+def generate_network_config(settings):
+  net_gen = NetConfigGenerator();
+  net_gen.network = settings.network
+  net_gen.technology = settings.technology
+  net_gen.num_gpu = settings.num_gpu
+  net_gen.num_cu_per_gpu = settings.num_cu_per_gpu
+  net_gen.num_cpu_memory_controller = settings.num_cpu_memory_controller
+  net_gen.cpu_bus_bandwidth = settings.cpu_bus_bandwidth
+  net_gen.generate()
 
 if __name__ == "__main__":
   main()

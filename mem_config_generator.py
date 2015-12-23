@@ -13,6 +13,9 @@ class MemConfigGenerator(object):
     self.set_l2_geometry()
     self.set_gm_cache_geometry()
 
+  def open_config_file(self):
+    return open('mem-config.ini', 'w')
+
   def set_l1v_geometry(self):
     self.l1v_block_size = 64
     self.l1v_assoc = 4

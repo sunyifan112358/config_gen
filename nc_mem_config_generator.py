@@ -6,7 +6,7 @@ class NcMemConfigGenerator(MemConfigGenerator):
     super(NcMemConfigGenerator, self).__init__()
 
   def generate(self):
-    config = open('mem-config.ini', 'w')
+    config = self.open_config_file()
     self.write_general_section(config)
     self.write_l1v_geometry(config)
     self.write_l1s_geometry(config)
