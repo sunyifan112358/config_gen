@@ -13,7 +13,7 @@ class PcieBackboneNetworkGenerator(BackboneNetworkGenerator):
     self.write_connections(writer)
 
   def write_pcie_bus(self, writer):
-    writer.add_bus('pcie-bus', bandwidth = 12)
+    writer.add_bus('pcie-bus', bandwidth = 15)
 
   def write_connections(self, writer):
     for i in range(0, self.num_gpu):

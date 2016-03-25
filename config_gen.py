@@ -27,17 +27,20 @@ def generate_si_config(settings):
   si_gen.generate()
 
 def generate_memory_config(settings):
-  mem_gen = get_memory_config_generator(settings)
+  mem_gen = get_memory_config_generator(settings.network)
+  mem_gen.num_gpu = settings.num_gpu
+  mem_gen.num_cu_per_gpu = settings.num_cu_per_gpu
+  mem_gen.num_l2_per_gpu = settings.num_cu_per_gpu / 4
   mem_gen.num_cpu_memory_controller = settings.num_cpu_memory_controller
   mem_gen.set_gm_block_size(settings.gm_block_size)
   mem_gen.generate()
 
-def get_memory_config_generator(settings):
-  if settings.network == 'umh':
+def get_memory_config_generator(network):
+  if network == 'umh':
     return UmhMemConfigGenerator()
-  elif settings.network == 'zc':
+  elif network == 'zc':
     return ZcMemConfigGenerator()
-  elif settings.network == 'nc':
+  elif network == 'nc':
     return NcMemConfigGenerator()
   else:
     raise Exception('Unsupported network type: ' + settings.network)

@@ -48,6 +48,9 @@ class MemConfigGenerator(object):
     self.gm_block_size = size;
     self.gm_sets = self.gm_size / self.gm_assoc / self.gm_block_size
 
+    if self.mm_block_size < self.gm_block_size:
+        self.mm_block_size = self.gm_block_size
+
   def genreate(self):
     pass
 
