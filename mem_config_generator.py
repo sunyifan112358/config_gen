@@ -58,6 +58,8 @@ class MemConfigGenerator(object):
     config.write((
       '[General]\n'
       'Frequency = 1200\n'
+      'Coherency = NMSI\n'
+      'PeerTransfer = Off\n'
     ))
 
   def write_l1v_geometry(self, config):
@@ -151,13 +153,4 @@ class MemConfigGenerator(object):
         l2_id = cpu_id * self.num_l2_per_gpu + j
         config.write('l2n' + str(l2_id) + ' ')
       config.write('\n')
-
-
-
-
-
-
-
-
-
 
