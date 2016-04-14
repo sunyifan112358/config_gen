@@ -16,6 +16,8 @@ class Setting:
     self._parser.add_argument('--technology', default='pcie',
         choices=['pcie', 'p2p'])
     self._parser.add_argument('--cpu-bus-bandwidth', default=12, type=int)
+    self._parser.add_argument('--coherency', default='NSI', 
+         choices=['NSI', 'NMOESI'])
 
   def parse_arguments(self):
     self._args = self._parser.parse_args()
@@ -26,3 +28,4 @@ class Setting:
     self.gm_block_size = self._args.gm_block_size
     self.technology = self._args.technology
     self.cpu_bus_bandwidth = self._args.cpu_bus_bandwidth
+    self.coherency = self._args.coherency

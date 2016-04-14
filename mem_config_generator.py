@@ -7,6 +7,7 @@ class MemConfigGenerator(object):
     self.num_cpu_memory_controller = 2
     self.mm_block_size = 4096
     self.mm_latency = 29
+    self.coherency = 'NMSI'
 
     self.set_l1v_geometry()
     self.set_l1s_geometry()
@@ -58,9 +59,12 @@ class MemConfigGenerator(object):
     config.write((
       '[General]\n'
       'Frequency = 1200\n'
-      'Coherency = NMSI\n'
-      'PeerTransfer = Off\n'
+      'Coherency = ' + self.coherency + '\n'
     ))
+    if self.coherency == "NMSI":
+        config.write('PeerTransfers = Off\n')
+    else
+        config.write('PeerTransfers = On\n')
 
   def write_l1v_geometry(self, config):
     config.write((

@@ -32,6 +32,7 @@ def generate_memory_config(settings):
   mem_gen.num_cu_per_gpu = settings.num_cu_per_gpu
   mem_gen.num_l2_per_gpu = settings.num_cu_per_gpu / 4
   mem_gen.num_cpu_memory_controller = settings.num_cpu_memory_controller
+  mem_gen.coherency = settings.coherency
   mem_gen.set_gm_block_size(settings.gm_block_size)
   mem_gen.generate()
 
