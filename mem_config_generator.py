@@ -63,7 +63,7 @@ class MemConfigGenerator(object):
     ))
     if self.coherency == "NMSI":
         config.write('PeerTransfers = Off\n')
-    else
+    else:
         config.write('PeerTransfers = On\n')
 
   def write_l1v_geometry(self, config):
